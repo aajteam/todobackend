@@ -88,7 +88,7 @@ clean:
 	${INFO} "Destroying release environment..."
 	@ docker-compose -p $(REL_PROJECT) -f $(REL_COMPOSE_FILE) down -v
 	${INFO} "Removing dangling images..."
-	@ docker images -q -f dangling=true -f label=application=$(REPO_NAME) | xargs -I ARGS docker rmi -f ARGS
+	@ docker images -q -f dangling=true | xargs -I ARGS docker rmi -f ARGS
 	${INFO} "Clean complete"
 
 tag: 
